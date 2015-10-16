@@ -1,0 +1,150 @@
+// ==========================================================================
+// Base – Mixins
+// ==========================================================================
+
+// CLearfix
+clearfix()
+  *zoom 1
+  &:before
+  &:after
+      content: " "
+      display: table
+  &:after
+      clear: both
+
+
+// Debug adds a translucent background to every element allowing you to see structure more clearly
+// Usage: debug()
+debug(color = #000)
+  *
+    background rgba(color, 0.06)
+
+
+
+// Font sizes (primary sizing in `rem` units with a fallback of `px`)
+// Example usage .font-size(18);
+font-size(size)
+  remValue = size / 16
+  pxValue = size
+  font-size: unquote("" + pxValue + "px")
+  font-size: unquote("" + remValue + "rem")
+
+
+
+// Line height sizes (primary sizing in `rem` units with a fallback of `px`)
+// Example usage .line-height(22);
+line-height(size)
+  remValue = size / 16
+  pxValue = size
+  line-height: unquote("" + pxValue + "px")
+  line-height: unquote("" + remValue + "rem")
+
+
+
+// Border Radius
+// Example usage .border-radius(2px) || .border-radius(100%);
+border-radius(radius)
+  border-radius: radius
+
+
+
+// Rotate (Transformation)
+// Example usage .rotate(180) || .rotate(-45);
+rotate(rotate)
+  transform: rotate(rotate + deg)
+
+
+
+// SVG background with PNG fallback
+// Example Usage .svg-bg("img/banner.svg", "img/banner.png", 50%, 50%, no-repeat);
+bg-svg(svg, png, x = 0, y = 0, repeat = no-repeat)
+  background: url(svg) x y repeat
+  .no-svg &
+    background: url(png) x y repeat
+
+
+
+// Background Color with Opacity
+// Example Usage: .bg-rgba(#111, 50%);
+bg-rgba(color, alpha)
+  opacity = alpha / 100%
+  rgba = rgba(color, opacity)
+  background: color
+  background: rgba(color, opacity)
+
+
+
+// Opacity
+// Example Usage: .opacity(50%);
+opacity(opacity = 0.5)
+  opacity: opacity
+
+
+
+// Animations
+// Example Usage .animation(1s);
+animate(duration = 1s)
+  animation-duration: duration
+  animation-fill-mode: both
+
+
+
+// Animation Delay
+// Example Usage .animation-delay(1s)
+animate-delay(delay = 1s)
+  animation-delay: delay
+
+
+
+// CSS Transitions
+// Example Usage .transition(0.3s)
+transition(prop= all, speed = 0.3s)
+  transition: prop speed
+
+
+
+// Transition Delay
+// Example usage .transition-delay(.3s)
+transition-delay(speed = 0.3s)
+  transition-delay: speed
+
+
+
+// Inverse
+inverse(color = white)
+  border-color color
+  color color
+  background-color transparent
+  &:hover
+    border-color color
+    color color
+    background-color rgba(color, 0.1)
+
+
+
+// Mixin: Gradient
+// 
+// Takes one color and outputs a vertical gradient between the offset by 10% in
+// either direction, offset precentage customizable via `strength` param. Or
+// takes two colors and outputs a vertical gradient that fades between the two
+// colors.
+// 
+// ex. gradient: red blue
+// ex. gradient: red
+
+gradient(color1, color2 = null, strength = 10%)
+  // shift args if one color mode
+  if (typeof(color2) is 'unit')
+    strength = color2
+    color2 = null
+
+  start = color2 ? color1 : lighten(color1, strength)
+  end = color2 ? color2 : darken(color1, strength)
+  background: start
+  background: end linear-gradient(top, start, end) repeat-x
+
+
+
+// SVG Fill - TO DO
+// Example usage: .svg-fill("img/icon.svg", "#555");
+// Not enough mixins? – Please make some suggestions or contribute more! :)

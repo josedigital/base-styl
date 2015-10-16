@@ -1,0 +1,61 @@
+body
+  background white
+
+
+
+section.main
+  float left
+  width 54%
+  position relative
+  height 100%
+  
+  nav
+    width 54%
+    padding 0.65em 2% 0
+    ul.main-nav
+      float left
+      text-align left
+
+  .page-content
+    position absolute
+    width 100%
+    bottom 5%
+
+  .hds
+    margin 20% 0 0
+  .hds,
+  .tagline
+    text-align left
+
+  .hello
+    margin-top 0
+
+
+
+
+section.contact
+  width 46%
+  background rgba(202,201,220,1) url('../img/bio.jpg') 0 center no-repeat
+  background-size cover
+  height 100%
+  right 0
+  top 0
+  position fixed
+
+
+  .contact-form
+    opacity(0)
+    visibility hidden
+    &.show
+      opacity(1)
+      background rgba(color-secondary, 0.8)
+      visibility visible
+
+
+
+
+section.work
+  clear both
+  float left
+  width 54%
+  position relative

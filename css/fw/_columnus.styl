@@ -1,0 +1,112 @@
+// Columnus
+// ===========
+
+// Based on the 12 column nestable Foundation Grid:
+// http://foundation.zurb.com/docs/components/grid.html
+// -----------------------------------------------------------------------------
+
+// Imports
+// -------
+
+// Requires nib, unless you would rather handle the vendor prefixes yourself
+
+// Functions
+// ---------
+
+grid(class = 'small', columns = 12)
+  // Iterate through our columns
+  for colCount in (1 .. columns)
+    // Convert each column count to a percentage: i.e. 1/12
+    percentWidth = 1% * ((colCount / columns) * 100)
+
+    // Column class for the width
+    .{class}-{colCount}
+      width percentWidth
+
+    .{class}-push-{colCount}
+      margin-left percentWidth
+    
+    .{class}-pull-{colCount}
+      margin-left percentWidth*-1
+
+// Styles
+// ------
+
+.page-wrap,
+.container
+  overflow hidden
+
+.container
+  clearfix()
+  list-style none
+  margin 0 1%
+  +above(tablet-breakpoint)
+    margin 0 5%
+  // margin 0 -1em
+
+.column,
+.columns
+  float left
+  position relative
+  padding 0 1em 2em
+  .container
+    margin 0
+    .column,
+    .columns
+      &:first-child
+        padding-left 0
+      &:last-child
+        padding-right 0
+      +below(tablet-breakpoint)
+        padding 0
+
+
+  img
+    max-width 100%
+    height auto
+    ms-interpolation-mode bicubic
+
+// create grid for small breakpoint
+grid()
+// helpers for small breakpoint
+.hide-small
+  display none
+.show-small
+  display block
+.show-small-inline-block
+  display inline-block
+.show-small-inline
+  display inline
+
+
+@media (min-width: 48em)
+  // create grid for medium breakpoint
+  grid('med')
+  // helpers for medium breakpoint
+  .hide-med
+    display none
+  .show-med
+    display block
+  .show-med-inline-block
+    display inline-block
+  .show-med-inline
+    display inline
+
+@media (min-width: 64em)
+  // create grid for large breakpoint
+  grid('large')
+  // helpers for large breakpoint
+  .hide-large
+    display none
+  .show-large
+    display block
+  .show-large-inline-block
+    display inline-block
+  .show-large-inline
+    display inline
+
+
+// helpful mixin to center a block element
+center(width = 100%)
+  margin 0 auto
+  width width
