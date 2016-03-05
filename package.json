@@ -1,0 +1,27 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "description": "week 1 of weeks of ui",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "ui",
+    "design"
+  ],
+  "author": "alex rodriguez",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-stylus": "^2.3.0",
+    "harp": "^0.20.1"
+  }
+}

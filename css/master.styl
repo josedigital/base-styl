@@ -1,52 +1,54 @@
 // ==========================================================================
 
-// Base Styles for City of Austin
+// Base Styles
 
 // ==========================================================================
 
-  // Import Google Fonts
-  @import url("https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900")
-  @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic,300italic,700italic,800,800italic|Roboto+Slab:400,700|Lora:400,700|Oswald:400,700,300")
+// Import Google Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900")
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic,300italic,700italic,800,800italic|Roboto+Slab:400,700|Lora:400,700|Oswald:400,700,300")
+
+// import libraries
+@import "rupture/rupture"
+
+
+// Import Framework
+@import "fw/_colors"
+@import "fw/_variables"
+@import "fw/_mixins"
+@import "fw/_resets"
+@import "fw/_global"
+@import "fw/_lists"
+@import "fw/_blockquotes"
+@import "fw/_tables"
+@import "fw/_code"
+@import "fw/_forms"
+@import "fw/_assets"
+@import "fw/_columnus"
   
 
-  // Import Framework
-  @import "fw/_colors";
-  @import "fw/_variables";
-  @import "fw/_mixins";
-  @import "fw/_resets";
-  @import "fw/_global";
-  @import "fw/_lists";
-  @import "fw/_blockquotes";
-  @import "fw/_tables";
-  @import "fw/_code";
-  @import "fw/_forms";
-  @import "fw/_assets";
-  @import "fw/_columnus";
-    
+// Mobile/Global Styles
+@import "_mobile-styles"
 
-  // Mobile/Global Styles
-  @import "_mobile-styles";
+// Tablet Styles
++above(tablet-breakpoint)
+  @import "_tablet-styles"
 
-  // Tablet Styles
-  +above(tablet-breakpoint)
-    @import "_tablet-styles";
+// Desktop Styles
++above(desktop-breakpoint)
+  @import "_desktop-styles"
 
-  // Desktop Styles
-  +above(desktop-breakpoint)
-    @import '_desktop-styles'
+// HD Styles
++above(hd-breakpoint)
+  @import "_hd-styles"
 
-  // HD Styles
-  +above(hd-breakpoint)
-    @import "_hd-styles";
-  
-  // Helpers
-  @import "fw/_helpers";
+// Helpers
+@import "fw/_helpers"
 
-  // Animations
-  @import "fw/_animations";
+// Animations
+@import "fw/_animations"
 
-  // Printer Styles
-  @media print {
-    @import "fw/_print";
-  }
+// Printer Styles
+@media print
+  @import "fw/_print"
   

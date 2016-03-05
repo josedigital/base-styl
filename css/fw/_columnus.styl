@@ -79,7 +79,8 @@ grid()
   display inline
 
 
-@media (min-width: 48em)
+// @media (min-width: 48em)
++above(tablet-breakpoint)
   // create grid for medium breakpoint
   grid('med')
   // helpers for medium breakpoint
@@ -92,7 +93,8 @@ grid()
   .show-med-inline
     display inline
 
-@media (min-width: 64em)
+// @media (min-width: 64em)
++above(desktop-breakpoint)
   // create grid for large breakpoint
   grid('large')
   // helpers for large breakpoint
